@@ -1,4 +1,7 @@
-<?php include_once './resources/header.php'; ?>
+<?php 
+//include the header 
+include_once './resources/header.php'; 
+?>
 
 <div class='header_wrapper'>
 	<div class='header_inner'>
@@ -39,6 +42,9 @@
 	</div>
 </div>
 
-<?php include_once './resources/footer.php'; ?>
+<?php 
+//include the footer
+include_once './resources/footer.php'; 
+?>
 
 
