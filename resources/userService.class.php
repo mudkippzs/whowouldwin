@@ -116,6 +116,7 @@ class userService{
 }
 	
 	public function return_result($r,$m){
+		$this->result = array('reply'=>0,'response' => null);
 		$this->result['reply'] = $r;
 		$this->result['response'] = $m;		
 		
@@ -216,8 +217,7 @@ class userService{
 	}
 	
 	public function random_pass($uniq,$uid){
-		$r = 0;
-		$this->result = array('reply'=>0,'response' => null);
+		$r = 0;		
 		$gib = $uniq . $uid;
 		$hash = $this->hash_pass($gib);
 		$pass = $uniq;
