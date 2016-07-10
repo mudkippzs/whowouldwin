@@ -9,7 +9,7 @@ use PFBC\Element;
 /*
     Quick config bootstrap header phile :)
 */
-$active_db = 'local';
+$active_db = 'master';
 
 $config = array(
     "db" => array(
