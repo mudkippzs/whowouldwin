@@ -32,6 +32,16 @@ class userService{
 		return $this;
 	}
 	
+	public function post_card($uid){
+		if(empty($uid)){
+			$uid = $this->user_id;
+		}
+		$this->db->where("user_id",$uid);
+		$user = $this->db->getOne("users");
+		
+		return $user;
+	}
+	
 	public function get_user_id($username){
 	
 		$this->db->where("username",$username);
