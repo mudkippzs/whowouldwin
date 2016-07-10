@@ -44,8 +44,6 @@ class mailTemplate{
 			array_push($this->postbag,$cmd);			
 		}
 		
-		echo "\nAll letters in postbag!\n";		
-		
 	}
 	
 	public function batch_info(){
