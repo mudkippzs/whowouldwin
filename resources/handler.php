@@ -76,10 +76,10 @@ function process_password_reset($p){
 		$results = $passwordReset->make_new_pass();
 		if($results['reply'] != FALSE){
 			$reply['reply'] = 1;
-			$reply['response'] = $results['response'];
+			$reply['response'] = 'Password reset! Please check your email!';
 		}
 		}else{
-			$reply['response'] = "Email invalid";
+			$reply['response'] = 'Password reset! Please check your email!';
 		}
 				
 	}else{

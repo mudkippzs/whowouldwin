@@ -226,9 +226,8 @@ class userService{
 		);
 		$this->db->where ('user_id', $uid);
 		if ($this->db->update ('user_access', $data)){
-			$r = 1;
-			$m = 'Password Reset! Check your mail!,';
-			$m .= $gib;
+			$r = 1;			
+			$m = $gib;
 		}else{
 			$m = 'Password not reset :(';
 		}
