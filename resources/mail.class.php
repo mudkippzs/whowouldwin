@@ -109,7 +109,7 @@ class mailTemplate{
 
 }
 $env1 = array('mudkippzs@gmail.com','noreply@whowouldwin.io','Alex','Test Mail','THIS IS A MESASGE',"This is a template {{MESSAGE_BODY}} GOOD BYE ALEX");
-$env2 = array('alex@gmail.com','noreply@whowouldwin.io','Alex','2Test Mail','2THIS IS A MESASGE',"This is a template {{MESSAGE_BODY}} GOOD BYE2 ALEX");
+$env2 = array('me@alexsheridan.me','noreply@whowouldwin.io','Alex','2Test Mail','2THIS IS A MESASGE',"This is a template {{MESSAGE_BODY}} GOOD BYE2 ALEX");
 $mail = new mailTemplate();
 $mail->add_mail($env1);
 $mail->add_mail($env2);

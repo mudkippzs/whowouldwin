@@ -86,6 +86,7 @@ $config['db']<--change these['local'/'master']['dbname'/'username'/'password'/'h
 require_once  $_SERVER["DOCUMENT_ROOT"] . '/db/MysqliDb.php';
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/functions.php'; 
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/userService.class.php'; 
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/mail.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/login_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/password_reset.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/logout_user.class.php'; 
