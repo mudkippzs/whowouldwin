@@ -217,7 +217,8 @@ class userService{
 	
 	public function random_pass($uniq,$uid){
 		$r = 0;
-		$hash = $this->hash_pass($uniq . $uid);
+		$gib = $uniq . $uid;
+		$hash = $this->hash_pass($gib);
 		$pass = $uniq;
 		$data = Array (
 		'hash' =>  $hash,
@@ -227,7 +228,7 @@ class userService{
 		if ($this->db->update ('user_access', $data)){
 			$r = 1;
 			$m = 'Password Reset! Check your mail!,';
-			$m .= $hash;
+			$m .= $gib;
 		}else{
 			$m = 'Password not reset :(';
 		}
