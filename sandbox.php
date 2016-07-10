@@ -3,18 +3,7 @@ include_once './resources/header.php';
 
 
 //test classes and functions in here :D 
-
-if(isset($_SESSION['user_id'])){
-	$logout = new logout_user($_SESSION['user_id']);
-	if($logout->do_logout()){
-		echo 'logged out';
-	}else{
-		echo 'logout failed';
-	}
-}else{
-	echo 'Not logged in';
-}
-
+//do nothing
 
 
 include_once './resources/footer.php';
