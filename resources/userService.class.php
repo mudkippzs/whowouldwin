@@ -217,6 +217,7 @@ class userService{
 	
 	public function random_pass($uniq,$uid){
 		$r = 0;
+		$this->result = array('reply'=>0,'response' => null);
 		$gib = $uniq . $uid;
 		$hash = $this->hash_pass($gib);
 		$pass = $uniq;
