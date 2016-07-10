@@ -23,11 +23,16 @@ class register_user extends userService{
 	
 	public function add_new_user(){	
 		$r = 0;
-		$m = 'nothin happened';
+		$m = 'nothin happened';		
 		if($this->check_existing_username() != FALSE){
 			if($this->register_user() != FALSE){
 				$r = 1;
-				$m = 'User registered - register_user()';				
+				$m = 'User registered - register_user()';
+				$user = $this->post_card($this->user_id);
+				$env = array($user['email'],'noreply@whowouldwin.io','Who Would Win','WWW - Account Info!',"","Hi " . ucfirst($user['username']) . " <p>You can login and start creating heroes!</p><p>Remember, we're always looking for feedback on how we can improve the site! <a href='https://docs.google.com/forms/d/1zKansQ13GHGvO9Pq6NBppFmz41FtlGqX0HVpqXbVO7k/edit?usp=sharing' target='_blank' >Click this link</a> for a short survey on to let me know what you want to get from this platform!</p><p>Thanks,</br><br>Alex<br><strong>Admin</strong></p>");
+				$mail = new mailTemplate();
+				$mail->add_mail($env);
+				$mail->send_mail();				
 			}else{
 				$m = 'User not registered - register_user()';
 			}			
