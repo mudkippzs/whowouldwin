@@ -1,0 +1,54 @@
+<script type="text/template" id="offensive-power">
+	<div class="field-group">
+		<table class="power-fields">
+				<tr><td><label class='off-power-form' for="off-power-name-{?}">Offensive Ability</label></td>
+				<td colspan="3"><input type="text" name="off-power-name-{?}" value="" id="off-power-name-{?}" placeholder="Power Label" /></td><td><input type="button" class="delete2 delete" value="X" /></td></tr>
+				<tr><td><label for="off-power-type-{?}">Ability Type</label></td>
+				<td colspan="4">				
+				<select  name="off-power-type-{?}" class='off-power-type-select' id="off-power-type-{?}">				
+				</select>
+				</td></tr>
+				<tr><td><label for="off-power-value-{?}">Value</label></td>
+				<td colspan="4"><input type="text" name="off-power-value-{?}" value="" id="off-power-value-{?}" placeholder="0-20" /></td></tr>
+				<tr><td><label for="off-power-description-{?}">Description</label></td>
+				<td colspan="4"><input type="text" name="off-power-description-{?}" value="" id="off-power-description-{?}" placeholder="Flavour" /></td></tr>
+				<tr>
+				<td><label for="off-power-attribute">Main Attribute</label></td>
+				<td class='power_attrib_td'>
+				<select  name="off-power-attribute-{?}" class='off-power-attrib-select' id="off-power-attrib-{?}"></select>
+				</td>				
+				</tr>
+				<tr>
+				<td><label for="off-power-effects">Effects</label></td>
+				<td class='off_power_effect_list'>
+					<input type='checkbox' name='off-power-dot-{?}' value='1' />
+					<label for='off-power-dot-{?}'>Damage Over Time</label>
+					<input type='checkbox' name='off-power-stun-{?}' value='1' />
+					<label for='off-power-stun-{?}'>Stun</label>
+					<input type='checkbox' name='off-power-heal-{?}' value='1' />
+					<label for='off-power-heal-{?}'>Healing</label>
+					<input type='checkbox' name='off-power-deflect-{?}' value = '1' />
+					<label for='off-power-deflect-{?}'>Deflect</label>
+					<input type='checkbox' name='off-power-reflect-{?}' value = '1' />
+					<label for='off-power-reflect-{?}'>Reflect</label>
+					<input type='checkbox' name='off-power-absorb-{?}' value = '1' />
+					<label for='off-power-absorb-{?}'>Absorb</label>
+					<input type='checkbox' name='off-power-nullify-{?}' value = '1' />
+					<label for='off-power-nullify-{?}'>Nullify</label>
+					<input type='checkbox' name='off-power-armor_pierce-{?}' value = '1' />
+					<label for='off-power-armor_pierce-{?}'>Armor Piercing</label>
+					<input type='checkbox' name='off-power-confusion-{?}' value = '1' />
+					<label for='off-power-confusion-{?}'>Confusion</label>
+				</td>
+				</tr>
+				<tr>
+				<td><label for='off-power-duration'>Duration</label></td>
+				<td><input type='text' name='off-power-duration-{?}' placeholder='Max duration in turns?'></td>
+				</tr>
+				<tr>
+				<td><label for='off-power-cost'>Cost</label></td>
+				<td><input type='text' name='off-power-cost-{?}' placeholder='0'></td>
+				</tr>
+			</table>
+		</div>
+</script>

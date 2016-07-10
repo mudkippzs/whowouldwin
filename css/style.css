@@ -1,0 +1,62 @@
+.header_wrapper {
+    width: 100%;
+    display: block;
+}
+
+.header_inner {
+    width: 1200px;
+    height: auto;
+}
+
+.header_login_box {
+    width: 200px;
+    float: left;
+    margin: 5px;
+}
+
+.header_forgot_password {
+    display: none;
+}
+
+.header_registration {
+    width: 400px;
+    height: 200px;
+    margin: 5px;
+    float: left;
+}
+
+span.registration_no_email_warning {
+    font-size: x-small;
+    color: red;
+}
+
+body {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.registration_result {
+    width: 100%;
+    color: green;
+    float: left;
+}
+
+.login_result {
+    width: 100%;
+    color: green;
+    float: left;
+}
+
+.main_wrapper {
+    width: 100%;
+    min-height: 200px;
+    display: block;
+    float: left;
+}
+
+div#footer_wrapper {
+    width: 100%;
+    float: left;
+    height: 100px;
+    text-align: center;
+}

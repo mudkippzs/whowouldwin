@@ -1,0 +1,54 @@
+<script type="text/template" id="utility-power">
+	<div class="field-group">
+		<table class="power-fields">
+				<tr><td><label class='uti-power-form' for="uti-power-name-{?}">Utility Ability</label></td>
+				<td colspan="3"><input type="text" name="uti-power-name-{?}" value="" id="uti-power-name-{?}" placeholder="Power Label" /></td><td><input type="button" class="delete2 delete" value="X" /></td></tr>
+				<tr><td><label for="uti-power-type-{?}">Ability Type</label></td>
+				<td colspan="4">				
+				<select  name="uti-power-type-{?}" class='uti-power-type-select' id="uti-power-type-{?}">				
+				</select>
+				</td></tr>
+				<tr><td><label for="uti-power-value-{?}">Value</label></td>
+				<td colspan="4"><input type="text" name="uti-power-value-{?}" value="" id="uti-power-value-{?}" placeholder="0-20" /></td></tr>
+				<tr><td><label for="uti-power-description-{?}">Description</label></td>
+				<td colspan="4"><input type="text" name="uti-power-description-{?}" value="" id="uti-power-description-{?}" placeholder="Flavour" /></td></tr>
+				<tr>
+				<td><label for="uti-power-attribute">Main Attribute</label></td>
+				<td class='power_attrib_td'>
+				<select  name="uti-power-attribute-{?}" class='uti-power-attrib-select' id="uti-power-attrib-{?}"></select>
+				</td>				
+				</tr>
+				<tr>
+				<td><label for="uti-power-effects">Effects</label></td>
+				<td class='uti_power_effect_list'>
+					<input type='checkbox' name='uti-power-dot-{?}' value='1' />
+					<label for='uti-power-dot-{?}'>Damage Over Time</label>
+					<input type='checkbox' name='uti-power-stun-{?}' value='1' />
+					<label for='uti-power-stun-{?}'>Stun</label>
+					<input type='checkbox' name='uti-power-heal-{?}' value='1' />
+					<label for='uti-power-heal-{?}'>Heal</label>
+					<input type='checkbox' name='uti-power-deflect-{?}' value = '1' />
+					<label for='uti-power-deflect-{?}'>Deflect</label>
+					<input type='checkbox' name='uti-power-reflect-{?}' value = '1' />
+					<label for='uti-power-reflect-{?}'>Reflect</label>
+					<input type='checkbox' name='uti-power-absorb-{?}' value = '1' />
+					<label for='uti-power-absorb-{?}'>Absorb</label>
+					<input type='checkbox' name='uti-power-nullify-{?}' value = '1' />
+					<label for='uti-power-nullify-{?}'>Nullify</label>
+					<input type='checkbox' name='uti-power-armor_pierce-{?}' value = '1' />
+					<label for='uti-power-armor_pierce-{?}'>Armor Piercing</label>
+					<input type='checkbox' name='uti-power-confusion-{?}' value = '1' />
+					<label for='uti-power-confusion-{?}'>Confusion</label>
+				</td>
+				</tr>
+				<tr>
+				<td><label for='uti-power-duration'>Duration</label></td>
+				<td><input type='text' name='uti-power-duration-{?}' placeholder='Max duration in turns?'></td>
+				</tr>
+				<tr>
+				<td><label for='uti-power-cost'>Cost</label></td>
+				<td><input type='text' name='uti-power-cost-{?}' placeholder='0'></td>
+				</tr>
+			</table>
+		</div>
+</script>
