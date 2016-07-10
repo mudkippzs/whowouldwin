@@ -59,7 +59,7 @@ class mailTemplate{
 	}
 	
 	public function send_mail(){		
-		$this->batch_info();
+		// debug :) $this->batch_info();
 		$this->build_mail_array();
 		foreach($this->postbag as $index=>$letter){
 			eval($letter);
