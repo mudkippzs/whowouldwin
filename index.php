@@ -22,6 +22,7 @@ include_once './resources/header.php';
 			//logged in? show message - else: show reg form
 			if(is_user_logged_in()!= FALSE){
 				//show MOTD announcement for members
+				
 			}else{
 				include_once './resources/registration_form.php'; 
 			}
@@ -36,9 +37,9 @@ include_once './resources/header.php';
 		<?php 
 		if(isset($currentPage)){
 			$content = get_content($currentPage); 
-			
 			echo "<h1>" . $content['page_title'] . "</h1>";
 			echo "<p>" . $content['content'] . "</p>";
+			
 		}
 		?>
 	</div>

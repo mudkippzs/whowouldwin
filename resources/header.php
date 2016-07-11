@@ -16,7 +16,8 @@ if(isset($_GET['page'])){
 		<link rel="stylesheet" href="http://code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<script src="http://code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		
 		  <script>
 			  $(function() {
 				$( "#tabs" ).tabs({active: 0});

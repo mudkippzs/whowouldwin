@@ -14,7 +14,7 @@ $form->addElement(new PFBC\Element\Textbox("Index", "new_post_index"));
 $form->addElement(new PFBC\Element\Textbox("Title", "new_post_title"));
 $form->addElement(new PFBC\Element\Textbox("Stub", "new_post_stub"));
 $form->addElement(new PFBC\Element\Select("Template", "new_post_location", array('page'=>'Content Body','home_tower'=>'Side Tower','site_wide'=>'Site Wide')));
-$form->addElement(new PFBC\Element\TinyMCE("Body", "new_post_body"));
+$form->addElement(new PFBC\Element\CKEditor("Body", "new_post_body"));
 $form->addElement(new PFBC\Element\HTML("<span class='post_submit_result'></span>"));
 $form->addElement(new PFBC\Element\Button('Post'));
 $form->addElement(new PFBC\Element\Button('Cancel','button',array('onclick'=>'history.go(-1)')));

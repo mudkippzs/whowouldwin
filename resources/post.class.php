@@ -16,11 +16,11 @@ class post extends postService{
 	public function __construct($pa){
 		if(is_array($pa) && !empty($pa)){
 		//get the post all setup
-		set_title($pa['new_post_title']);
-		set_stub($pa['new_post_stub']);
-		set_template($pa['new_post_location']);
-		set_content($pa['new_post_body']);
-		set_page_id($pa['new_post_index']);		
+		$this->set_title($pa['new_post_title']);
+		$this->set_stub($pa['new_post_stub']);
+		$this->set_template($pa['new_post_location']);
+		$this->set_content($pa['new_post_body']);
+		$this->set_page_id($pa['new_post_index']);		
 		}elseif(is_string($pa)){
 			if(is_int($pa)){
 				$this->pid = $pa; //should be an int at this stage :3 dont for get to check because I know you alex, i know you'll forget to check. Like you forget everything.
@@ -35,7 +35,7 @@ class post extends postService{
 	}
 	
 	public function set_title($t){
-		$t = 
+		
 		$this->title = 	$t;
 	}
 	

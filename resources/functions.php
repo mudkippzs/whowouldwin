@@ -31,6 +31,19 @@ function is_valid_email($e){
 	return $r;
 }
 
+function is_admin($s){
+	$r = 0;	
+	$user = new userService();
+	$user->user_id = $user->db->escape($s);
+	$user_id = $user->user_id_is_valid($s);
+	if($user_id!= FALSE){
+		if($user->is_admin() != FALSE){
+			$r = 1;	
+		}		
+	}		
+	return $r;	
+}
+
 function print_nav($currentPage){
 	$db =  new MysqliDb(
 		DBHOST, //dbhost
@@ -43,14 +56,16 @@ function print_nav($currentPage){
 	$stubs = $db->get ("content", null, $cols);
 	if ($db->count > 0)
 		echo "<ul>";
-		foreach ($stubs as $s) { 
+		foreach ($stubs as $s) {			
 			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['stub']) . "</a></li>");
 		}
-		echo "</ul>";
-	
-	
+		if(is_user_logged_in()!= FALSE){
+			if(is_admin($_SESSION['user_id'])){
+				echo 'Your an admin';
+			}
+		}
+		echo "</ul>";	
 }
-
 
 function get_content($p){
 	$db =  new MysqliDb(
@@ -58,20 +73,25 @@ function get_content($p){
 		DBUSER, //dbuser
 		DBPASS, //dbpass
 		DBNAME //dbname
-		);	
+		);
 		
-	$page = $db->escape($p);
-	$content;
-	switch($page){
-		case 'about':
-			$content = 'about';
-		break;
-		default:
-			$content = 'home';
-		break;
+	if(!empty($p)){	
+		$cols = Array ("stub");
+		$stubs = $db->get ("content", null, $cols);
+		if ($db->count > 0){		
+			foreach ($stubs as $s) { 
+				if($p === $s['stub']){			
+					$content = $s['stub'];
+					break;
+				}else{
+					$content = 'home';
+				}
+			}		
+		}
+	}else{
+		$content = 'home';
 	}
 	
-		
 	$page = $db->escape($content);
 	$db->where ("stub", $page);
 	$content = $db->getOne ("content");

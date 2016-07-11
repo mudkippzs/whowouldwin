@@ -5,7 +5,8 @@ class userService{
 	protected $username;
 	protected $email;
 	protected $password;
-	protected $user_id;	
+	protected $user_id;
+	protected $user_level;
 	protected $result;
 	protected $db;
 	
@@ -18,6 +19,7 @@ class userService{
 	);	
 		$this->result = array('reply'=>0,'response' => null);
 	}
+	
 	public function __get($property) {
 		if (property_exists($this, $property)) {
 			return $this->$property;
@@ -50,6 +52,33 @@ class userService{
 		
 		return $user_id;
 			
+	}
+	
+	public function is_admin(){
+		$r = 0;
+		$this->db->where("user_id",$this->user_id);
+		$user = $this->db->getOne("command_level");
+		$this->user_level = $user['level'];
+		
+		if($this->user_level == '3'){
+			$r = 1;
+		}		
+		return $r;
+	}
+	
+	public function user_id_is_valid($id = null){
+		$r = 0;	
+		if(is_null($id)){
+			
+		}else{
+			$this->db->where("user_id",$id);
+			$user = $this->db->getOne("users");
+			$user_id = $user['user_id'];		
+			if($id === $user_id){
+				$r =1;
+			}
+		}		
+		return $r;	
 	}
 	
 	public function email_is_valid($e){
