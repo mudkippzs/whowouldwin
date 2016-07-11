@@ -45,7 +45,11 @@ if(isset($_GET['page'])){
 				<!-- .logo -->
 				
 				<nav>
-					<?php print_nav($currentPage); ?>
+					<?php if(!isset($currentPage)){
+						$currentPage = 'null';
+					}
+						print_nav($currentPage);
+					?>
 				</nav>
 			
 			</div>
