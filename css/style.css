@@ -60,3 +60,38 @@ div#footer_wrapper {
     height: 100px;
     text-align: center;
 }
+
+.logo {
+    width: 100%;
+    text-align: center;
+}
+
+.logo > a {
+    font-size: 5em;
+    color: #000;
+    text-decoration: none;
+}
+
+.header_inner > nav > ul {
+    width: 100%;
+    list-style: none;
+    float: left;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+.header_inner > nav > ul > li {
+    float: left;
+    margin: 0px 5px;
+}
+.logo > a {
+    font-size: 5em;
+    color: #000;
+    text-decoration: none;
+}
+
+.main_inner {
+    width: 100%;
+    padding: 0px 200px;
+}
+
