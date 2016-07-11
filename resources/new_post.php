@@ -10,8 +10,10 @@ $form->configure(array(
 ));
 $form->addElement(new PFBC\Element\HTML('<legend>New Post</legend>'));
 $form->addElement(new PFBC\Element\Hidden('www_new_post_form','form'));
+$form->addElement(new PFBC\Element\Textbox("Index", "new_post_index"));
 $form->addElement(new PFBC\Element\Textbox("Title", "new_post_title"));
-$form->addElement(new PFBC\Element\Select("Title", "new_post_location", array('home_main'=>'Home Main','home_tower'=>'Home Tower','site_wide'=>'Site Wide')));
+$form->addElement(new PFBC\Element\Textbox("Stub", "new_post_stub"));
+$form->addElement(new PFBC\Element\Select("Template", "new_post_location", array('page'=>'Content Body','home_tower'=>'Side Tower','site_wide'=>'Site Wide')));
 $form->addElement(new PFBC\Element\TinyMCE("Body", "new_post_body"));
 $form->addElement(new PFBC\Element\HTML("<span class='post_submit_result'></span>"));
 $form->addElement(new PFBC\Element\Button('Post'));

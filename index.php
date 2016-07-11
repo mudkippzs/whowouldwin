@@ -35,7 +35,10 @@ include_once './resources/header.php';
 	<div class='main_inner'>
 		<?php 
 		if(isset($currentPage)){
-			get_content($currentPage); 
+			$content = get_content($currentPage); 
+			
+			echo "<h1>" . $content['page_title'] . "</h1>";
+			echo "<p>" . $content['content'] . "</p>";
 		}
 		?>
 	</div>

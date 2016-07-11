@@ -44,7 +44,7 @@ function print_nav($currentPage){
 	if ($db->count > 0)
 		echo "<ul>";
 		foreach ($stubs as $s) { 
-			print_r ("<li><a href=''>" . strtoupper($s) . "</a></li>");
+			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['stub']) . "</a></li>");
 		}
 		echo "</ul>";
 	

@@ -25,6 +25,11 @@ if(isset($_POST["www_new_comment_form"])) {
 	process_new_comment($_POST);
 }	
 
+//submit post form
+if(isset($_POST["www_new_post_form"])) {
+	process_new_post($_POST);
+}	
+
 /*
 	Spell Book (functions to handle forms)
 */
@@ -98,6 +103,25 @@ function process_new_comment($p){
 				$reply['response'] = "Form submitted and processed without error";
 	}else{
 		$reply['response'] = "Form wasn't submitted correctly!";
+	}
+	header('Content-Type: application/json');
+	echo json_encode($reply);
+}
+
+//process new post spell
+function process_new_post($p){
+	$reply = array('reply'=>0,'response'=>'null');
+		
+	if(!empty($p)){
+		$post = new post($p);
+				if($post->save_post()!=FALSE){
+				$reply['reply'] = 1;
+				$reply['response'] = "Post submitted";
+				}else{
+					$reply['response'] = "Post wasn't submitted correctly!";
+				}
+	}else{
+		$reply['response'] = "Post wasn't submitted correctly!";
 	}
 	header('Content-Type: application/json');
 	echo json_encode($reply);
