@@ -43,8 +43,8 @@ function print_nav($currentPage){
 	$stubs = $db->get ("content", null, $cols);
 	if ($db->count > 0)
 		echo "<ul>";
-		foreach ($stubs as $stub) { 
-			print_r ("<li><a href=''>" . strtoupper($stub) . "</a></li>");
+		foreach ($stubs as $s) { 
+			print_r ("<li><a href=''>" . strtoupper($s) . "</a></li>");
 		}
 		echo "</ul>";
 	
@@ -72,7 +72,7 @@ function get_content($p){
 	}
 	
 		
-	$page = $db->escape($currentPage);
+	$page = $db->escape($content);
 	$db->where ("stub", $page);
 	$content = $db->getOne ("content");
 	return $content;
