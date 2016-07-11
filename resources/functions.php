@@ -58,6 +58,7 @@ function print_nav($currentPage){
 		echo "<ul>";
 		foreach ($stubs as $s) {
 			if(is_null($s['stub'])){
+				echo $s['stub'];
 				$s['stub'] = 'HOME';
 			}
 			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['page_title']) . "</a></li>");
