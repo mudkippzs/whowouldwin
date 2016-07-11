@@ -61,7 +61,7 @@ function print_nav($currentPage){
 		}
 		if(is_user_logged_in()!= FALSE){
 			if(is_admin($_SESSION['user_id'])){
-				echo 'Your an admin';
+				print_r ("<li><a href='/admin.php'>Admin Panel</a></li>");
 			}
 		}
 		echo "</ul>";	
