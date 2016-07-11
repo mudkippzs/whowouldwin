@@ -52,12 +52,12 @@ function print_nav($currentPage){
 		DBNAME //dbname
 		);	
 		
-	$cols = Array ("page_id", "stub");
+	$cols = Array ("page_title", "stub");
 	$stubs = $db->get ("content", null, $cols);
 	if ($db->count > 0)
 		echo "<ul>";
 		foreach ($stubs as $s) {			
-			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['stub']) . "</a></li>");
+			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['page_title']) . "</a></li>");
 		}
 		if(is_user_logged_in()!= FALSE){
 			if(is_admin($_SESSION['user_id'])){
