@@ -33,7 +33,11 @@ include_once './resources/header.php';
 </div>
 <div class='main_wrapper'>
 	<div class='main_inner'>
-		
+		<?php 
+		if(isset($currentPage)){
+			get_content($currentPage); 
+		}
+		?>
 	</div>
 
 	<div class='main_tower'>

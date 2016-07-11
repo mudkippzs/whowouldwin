@@ -1,6 +1,11 @@
 <?php
 include_once './resources/config.php'; 
 update_user_activity();
+
+if(isset($_GET['page'])){
+	$currentPage = $_GET['page'];
+}
+
 ?>
 <html>
 	<head>
@@ -40,7 +45,7 @@ update_user_activity();
 				<!-- .logo -->
 				
 				<nav>
-					
+					<?php print_nav($currentPage); ?>
 				</nav>
 			
 			</div>
