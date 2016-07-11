@@ -111,7 +111,7 @@ function process_new_comment($p){
 //process new post spell
 function process_new_post($p){
 	$reply = array('reply'=>0,'response'=>'null');
-		
+	//check for drugsmuggling in $p here
 	if(!empty($p)){
 		$post = new post($p);
 				if($post->save_post()!=FALSE){
