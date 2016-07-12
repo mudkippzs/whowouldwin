@@ -44,6 +44,24 @@ function is_admin($s){
 	return $r;	
 }
 
+function pull_attribute_definitions(){
+	$db = new MysqliDb(
+		DBHOST, //dbhost 
+		DBUSER, //dbuser
+		DBPASS, //dbpass
+		DBNAME //dbname
+	);
+	
+	$cols = array("id","label","description","multiplier");
+	$attributes = $db->get ("attribute_definitions");
+	if($db->count > 0){
+		$r = $attributes;
+	}else{
+		$r = 'No attributes defined';
+	}	
+	return $r;	
+}
+
 function print_nav($currentPage){
 	$db =  new MysqliDb(
 		DBHOST, //dbhost
@@ -52,7 +70,7 @@ function print_nav($currentPage){
 		DBNAME //dbname
 		);	
 		
-	$cols = Array ("page_title", "stub");
+	$cols = array("page_title", "stub");
 	$stubs = $db->get ("content", null, $cols);
 	if ($db->count > 0)
 		echo "<ul>";
@@ -63,7 +81,8 @@ function print_nav($currentPage){
 			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['page_title']) . "</a></li>");
 		}
 		if(is_user_logged_in()!= FALSE){
-			if(is_admin($_SESSION['user_id'])){
+			print_r ("<li><a href='/action.php'>NEW HERO</a></li>");
+			if(is_admin($_SESSION['user_id'])){				
 				print_r ("<li><a href='/admin.php'>ADMIN</a></li>");
 			}
 		}
@@ -79,7 +98,7 @@ function get_content($p){
 		);
 		
 	if(!empty($p)){	
-		$cols = Array ("stub");
+		$cols = array("stub");
 		$stubs = $db->get ("content", null, $cols);
 		if ($db->count > 0){		
 			foreach ($stubs as $s) { 

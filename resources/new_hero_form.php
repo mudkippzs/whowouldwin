@@ -1,5 +1,5 @@
 <?php
-
+$attributes = pull_attribute_definitions();
 $form = new PFBC\Form("www_new_hero");
 $form->configure(array(
 	"prevent" => array("bootstrap", "jQuery"),
@@ -13,14 +13,12 @@ $form->addElement(new PFBC\Element\HTML('<legend>Create a Hero</legend>'));
 $form->addElement(new PFBC\Element\Hidden('www_new_hero','form'));
 $form->addElement(new PFBC\Element\Textbox('Name','Textbox',array('required'=>1)));
 $form->addElement(new PFBC\Element\HTML('<h4>Attributes</h4>'));
-$form->addElement(new PFBC\Element\Range("Strength", "str_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Stamina", "sta_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Agility", "agi_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Dexterity", "dex_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Fighting", "fig_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Awareness", "awa_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Intelligence", "int_range",$rangeOptions));
-$form->addElement(new PFBC\Element\Range("Metabolism", "met_range",$rangeOptions));
+foreach($attributes as $attr){
+		$attr_lab = $attr['label'];
+		$attr_name = "attribute_range_" . $attr['id'];
+		
+		$form->addElement(new PFBC\Element\Range(ucfirst($attr_lab), $attr_name,$rangeOptions));
+}
 $form->addElement(new PFBC\Element\HTML("<span class='new_hero_result'></span>"));
 $form->addElement(new PFBC\Element\Button('Create'));
 $form->addElement(new PFBC\Element\Button('Reset','button',array('onclick'=>'history.go(-1)')));
