@@ -2,6 +2,9 @@
 //include the header 
 include_once './resources/header.php';
 if(is_user_logged_in()!= FALSE){ 
+
+
+	$userService = new userService();
 ?>
 
 <div class='header_wrapper'>
@@ -17,29 +20,26 @@ if(is_user_logged_in()!= FALSE){
 				<h2>Site Stats</h2>
 				<p>
 					<ul>
-						<li>Users</li>
-						<li>Users Registered</li>
-						<li>Today</li>
-						<li>This Week</li>
-						<li>This Month</li>
-						<li>Logins</li>
-						<li>Users Online</li>
-						<li>Logged in </li>
-						<li>Today</li>
-						<li>Last 5 days</li>
-						<li>Last 2 weeks</li>
-						<li>Last Month</li>
-						<li>All time</li>
-						<li>Avg Daily p/Month</li>
+						<h3>Users</h3>
+						<strong>Users Registered</strong>
+						<li>Today: <?php echo "<span>" . $userService->get_users_registered("-1 days") . "</span>"; ?>	</li>
+						<li>Last 5 days: <?php echo "<span>" . $userService->get_users_registered("-5 days") . "</span>"; ?></li>
+						<li>Last 30 days: <?php echo "<span>" . $userService->get_users_registered("-31 days") . "</span>"; ?></li>
+						<li>All time: <?php echo "<span>" . $userService->get_users_registered("-10 years") . "</span>"; ?>	</li>
+						<h3>Logins</h3>						
+						<strong>Logged in </strong>
+						<li>Today: <?php echo "<span>" . $userService->get_users_logged_in("-1 days") . "</span>"; ?>	</li>
+						<li>Last 5 days: <?php echo "<span>" . $userService->get_users_logged_in("-5 days") . "</span>"; ?>	</li>						
+						<li>Last 30 days: <?php echo "<span>" . $userService->get_users_logged_in("-31 days") . "</span>"; ?></li>				
+						<li>Users Online<small>(last 30 minutes)</small>: <?php echo "<span>" . $userService->get_users_logged_in("-30 minutes") . "</span>"; ?></li></li>
 					</ul>
 				</p>
 				<h2>Heroes</h2>
 					<ul>
-						<li>Heroes Created</li>
+						<h3>Heroes Created</h3>
 						<li>Today</li>
 						<li>Last 5 days</li>
-						<li>Last 2 weeks</li>
-						<li>Last Month</li>
+						<li>Last 30 days</li>
 						<li>All time</li>
 						<li>Avg per User</li>
 					</ul>
@@ -47,11 +47,10 @@ if(is_user_logged_in()!= FALSE){
 				</p>
 				<h2>Battles</h2>
 					<ul>
-						<li>Battles</li>
+						<h3>Battles</h3>
 						<li>Today</li>
 						<li>Last 5 days</li>
-						<li>Last 2 weeks</li>
-						<li>Last Month</li>
+						<li>Last 30 days</li>
 						<li>All time</li>
 						<li>Avg per User</li>					
 					</ul>
@@ -59,22 +58,20 @@ if(is_user_logged_in()!= FALSE){
 				</p>
 				<h2>Votes and Comments</h2>
 					<ul>
-						<li>Votes</li>
+						<h3>Votes</h3>
 						<li>Today (up/down)</li>
 						<li>Last 5 days (up/down)</li>
-						<li>Last 2 weeks (up/down)</li>
-						<li>Last Month (up/down)</li>
+						<li>Last 30 days (up/down)</li>
 						<li>All time (up/down)</li>
-						<li>Avg per User (up/down)</li>
+						<li>Avg number of votes (up/down)</li>
 						<li>Top Wins (up/down)</li>
 						<li>Top Votes (up/down)</li>
 						<li>Lowest Wins (up/down)</li>
 						<li>Lowest Votes (up/down)</li>
-						<li>Comments</li>
+						<h3>Comments</h3>
 						<li>Today</li>
 						<li>Last 5 days</li>
-						<li>Last 2 weeks</li>
-						<li>Last Month</li>
+						<li>Last 30 days</li>
 						<li>All time</li>
 						<li>Avg per User</li>
 					</ul>

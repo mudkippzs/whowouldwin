@@ -10,14 +10,11 @@ if(is_user_logged_in()!= FALSE){
 	</div>
 </div>
 <div class='main_wrapper'>
-	<div class='main_inner'>
-		<?php include './resources/new_hero_form.php'; ?>
-	</div>
-
+	
 	<div class='main_tower'>
-		<h2>Creating a Hero</h2>
+		<h2>About Heroes!</h2>
 		<p>
-		Give them a name, select their stats and use the scales to estimate their ability. This can be tweaked at any time but go with your gut if you don't have any sources.
+		Give them a name, select their stats and use the scales to estimate their ability in that area. This can be tweaked at any time but go with your gut if you don't have any sources!
 		</p>
 		<h2>Powers</h2>
 		<p>
@@ -37,6 +34,10 @@ if(is_user_logged_in()!= FALSE){
 		</p>
 		</p>	
 	</div>
+	<div class='main_inner'>
+		<?php include './resources/new_hero_form.php'; ?>
+	</div>
+
 </div>
 
 <?php 

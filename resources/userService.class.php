@@ -34,6 +34,102 @@ class userService{
 		return $this;
 	}
 	
+	public function get_total_user_count(){			
+		$cols = Array ("id");
+		$users = $this->db->get ("users", null, $cols);
+		if ($this->db->count >= 0){
+			$this->db->count;
+		}			
+	}
+	
+	public function get_users_registered($date=null){
+		$count = 0;
+		$cols = Array ("dateRegistered");
+		$users = $this->db->get ("users", null, $cols);
+		if ($this->db->count >= 0){
+			foreach($users as $user){
+				$dateReg = date('d-m-Y',strtotime($user['dateRegistered']));
+				$date = date('d-m-Y',strtotime($date));
+				if(!empty($date)){
+					if($dateReg >= $date){
+						$count += 1;
+					}
+				}else{
+					$count +=1;
+				}
+			}
+		}
+		return $count;
+	}
+	
+	public function get_users_online(){
+		
+	}
+	
+	public function get_users_logged_in($date=null){
+		$count = 0;
+		$cols = Array ("lastLogin");
+		$users = $this->db->get ("users", null, $cols);
+		if ($this->db->count >= 0){
+			foreach($users as $user){
+				$lastLogin = date('d-m-Y',strtotime($user['lastLogin']));
+				$date = date('d-m-Y',strtotime($date));
+				if(!empty($date)){
+					if($lastLogin >= $date){
+						$count += 1;
+					}
+				}else{
+					$count +=1;
+				}
+			}
+		}
+		return $count;
+	}
+	
+	public function daily_login_average($duration){
+		
+	}
+	
+	public function get_heroes_created($date){
+		
+	}
+	
+	public function get_average_heroes_user(){
+		
+	}
+	
+	public function get_total_battles($date){
+		
+	}
+	
+	public function get_average_battles_user(){
+		
+	}
+	
+	public function get_total_vote_count($date){
+		
+	}
+	
+	public function get_average_vote_count(){
+		
+	}
+	
+	public function get_top_hero($winOrVote){
+		
+	}
+	
+	public function get_low_hero($winOrVote){
+		
+	}
+	
+	public function comment_count($date){
+		
+	}
+	
+	public function average_comments_user(){
+		
+	}	
+	
 	public function post_card($uid){
 		if(empty($uid)){
 			$uid = $this->user_id;
