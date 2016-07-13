@@ -51,8 +51,9 @@ include_once './resources/header.php';
 		<?php 
 		if(isset($currentPage)){
 			$content = get_content($currentPage); 
-			echo "<h1>" . $content['page_title'] . "</h1>";
-			echo "<p>" . $content['content'] . "</p>";
+			echo "<h1>" . $content['page_title'] . "</h1>";			
+			echo "<p>" . $content['content'] . "</p>";			
+			echo "<small><strong>Updated </strong>" . time_elapsed_string($content['createdDate']) . "</small>";
 			
 		}
 		?>
