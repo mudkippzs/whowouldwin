@@ -4,6 +4,8 @@ $form = new PFBC\Form("www_user_login_form");
 $form->configure(array(
 	"prevent" => array("bootstrap", "jQuery"),
     "ajax" => 1,
+	"view" => new PFBC\View\Inline,
+    "labelToPlaceholder" => 1,
     "ajaxCallback" => "www_user_login_ajax",
     "novalidate" => "",
 	"action" => "./resources/handler.php"

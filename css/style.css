@@ -9,7 +9,7 @@
 }
 
 .header_login_box {
-    width: 200px;
+    width: 370px;
     float: left;
     margin: 5px;
 }
@@ -19,8 +19,7 @@
 }
 
 .header_registration {
-    width: 400px;
-    height: 200px;
+    width: 550px;
     margin: 5px;
     float: left;
 }
@@ -46,7 +45,6 @@ body {
     color: green;
     float: left;
 }
-
 .main_wrapper {
     width: 100%;
     min-height: 200px;
@@ -81,6 +79,13 @@ div#footer_wrapper {
 }
 
 .header_inner > nav > ul > li {
+    font-size: .8em;
+    margin: 0 auto;
+    width: 10%;
+    padding: 5px;
+}
+
+.header_inner > nav > ul > li {
     float: left;
     margin: 0px 5px;
 }
@@ -89,9 +94,45 @@ div#footer_wrapper {
     color: #000;
     text-decoration: none;
 }
-
-.main_inner {
-    width: 100%;
-    padding: 0px 200px;
+.header_inner > nav > ul > li {
+    font-size: .8em;
+    margin: 0 auto;
+    width: 10%;
+    padding: 5px;
+}
+.main_tower {
+    width: 250px;
+    display: block;
+    float: left;
 }
 
+.main_inner {
+    width: 1040px;
+    padding: 0px 300px;
+	margin-left:15px;
+}
+
+.main_tower > ul {
+    list-style: none;
+    font-weight: 700;
+	padding:5px;
+}
+
+.main_tower > ul > li {
+	margin: 15px 0px;
+}
+
+.main_tower > ul > li > ul > li {
+    font-weight: 100;
+}
+
+.main_tower > ul > ul > li {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.main_tower > ul > ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+}
