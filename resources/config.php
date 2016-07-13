@@ -2,14 +2,17 @@
 /*
 	Get session started
 */
+session_set_cookie_params(1800);
 session_start();
  
 use PFBC\Form;
 use PFBC\Element;
+use PFBC\View;
 /*
     Quick config bootstrap header phile :)
 */
-$active_db = 'local'; 
+//get out db sorted
+include $_SERVER["DOCUMENT_ROOT"] . '/resources/db.manifesto.php'; 
 
 $config = array(
     "db" => array(
@@ -72,6 +75,7 @@ switch($active_db){
 	
 }
 
+//use these definitions to grab DB creds anywhere in the codebase - dont change them for the life of me! also they're totally made up, I'll change them if anything gets fucky
 define("DBNAME",$db["dbname"]);
 define("DBUSER",$db["user"]);
 define("DBPASS",$db["pass"]);
@@ -80,21 +84,24 @@ define("PAGETITLE",'Who Would Win :: You decide');
 
 //req the database class 
 /*
-* tip: to select a certain db, instatiate a db class using the config array like: 
+* tip: to select a certain db,      instatiate a db class using the config array like: 
 $config['db']<--change these['local'/'master']['dbname'/'username'/'password'/'host']--->);
 */
+
+//db is primary class - obey
 require_once  $_SERVER["DOCUMENT_ROOT"] . '/db/MysqliDb.php';
-include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/functions.php'; 
-include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/userService.class.php'; 
+//functions.php needs to be above the rest
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/functions.php';
+// service classes go here or the rest false apart, dont blame me Im just making this up as I go along
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/userService.class.php';
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/postService.class.php';   
+//beautiful classes below - no ugly code please. respect my house.
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/mail.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/login_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/password_reset.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/logout_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/register_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/post.class.php'; 
-include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/postService.class.php'; 
-
-
 
 /*
     Creating constants for heavily used paths makes things a lot easier.
