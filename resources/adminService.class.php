@@ -6,7 +6,7 @@ class adminService{
 	
 	
 	
-	function public __construct(){
+	public function __construct(){
 		
 		
 		

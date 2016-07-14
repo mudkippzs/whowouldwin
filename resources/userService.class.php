@@ -165,7 +165,7 @@ class userService{
 	public function user_id_is_valid($id = null){
 		$r = 0;	
 		if(is_null($id)){
-			
+			$id = $this->user_id;
 		}else{
 			$this->db->where("user_id",$id);
 			$user = $this->db->getOne("users");

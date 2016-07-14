@@ -95,7 +95,8 @@ include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/functions.php';
 // service classes go here or the rest false apart, dont blame me Im just making this up as I go along
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/userService.class.php';
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/postService.class.php';   
-//beautiful classes below - no ugly code please. respect my house.
+//beautiful classes below - no ugly code please and descriptive file names please. respect my house.
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/log.class.php'; 
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/mail.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/login_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/password_reset.class.php'; 
