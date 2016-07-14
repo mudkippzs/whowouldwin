@@ -1,9 +1,16 @@
 <?php
 
 class postService{
-	
-	protected $page_data;
+		
 	protected $db;
+	protected $title;
+	protected $stub;
+	protected $template;
+	protected $content;
+	protected $page_id;
+	protected $modifiedDate;
+	protected $createdDate;		
+	protected $pid;
 	
 	public function __construct(){
 		$this->db =  new MysqliDb(
@@ -13,6 +20,27 @@ class postService{
 			DBNAME //dbname
 		);	
 		
+	}	
+	
+	public function set_title($t){
+		
+		$this->title = 	$t;
+	}
+	
+	public function set_stub($s){
+		$this->stub = $s;	
+	}
+	
+	public function set_template($t){
+		$this->template = $t;	
+	}
+	
+	public function set_content($c){
+		$this->content = $c;
+	}
+	
+	public function set_page_id($p){
+		$this->page_id = $p;	
 	}
 	
 	public function validate_post_info($key,$data){

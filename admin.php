@@ -16,7 +16,7 @@ if(is_user_logged_in()!= FALSE){
 </div>
 
 	<div class='main_wrapper'>
-		<li>
+		
 		<div class='main_tower'>
 			<div class='tower_statbox'>
 				<h2>Site Stats</h2>
@@ -82,6 +82,7 @@ if(is_user_logged_in()!= FALSE){
 			</div>
 		</div>
 	<div class='main_inner'>
+		<?php include './resources/post_bin.php'; ?>
 		<?php include './resources/new_post.php'; ?>
 	</div>
 

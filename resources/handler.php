@@ -29,6 +29,10 @@ if(isset($_POST["www_new_comment_form"])) {
 if(isset($_POST["www_new_post_form"])) {
 	process_new_post($_POST);
 }	
+//edit post form
+if(isset($_POST["www_edit_post_form"])) {
+	process_edit_post($_POST);
+}	
 
 /*
 	Spell Book (functions to handle forms)
@@ -122,6 +126,25 @@ function process_new_post($p){
 				}
 	}else{
 		$reply['response'] = "Post wasn't submitted correctly!";
+	}
+	header('Content-Type: application/json');
+	echo json_encode($reply);
+}
+
+//process edit post spell
+function process_edit_post($p){
+	$reply = array('reply'=>0,'response'=>'null');
+	//check for drugsmuggling in $p here
+	if(!empty($p)){
+		$post = new post($p);
+				if($post->update_post()!=FALSE){
+				$reply['reply'] = 1;
+				$reply['response'] = "Post edited";
+				}else{
+					$reply['response'] = "Post wasn't edited correctly!";
+				}
+	}else{
+		$reply['response'] = "Post wasn't edited correctly!";
 	}
 	header('Content-Type: application/json');
 	echo json_encode($reply);
