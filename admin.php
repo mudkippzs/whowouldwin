@@ -5,6 +5,8 @@ if(is_user_logged_in()!= FALSE){
 
 
 	$userService = new userService();
+	$logger = new logger('Admin page loaded','info',null);
+	$logger->save_log();
 ?>
 
 <div class='header_wrapper'>

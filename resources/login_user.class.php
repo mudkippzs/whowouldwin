@@ -43,8 +43,12 @@ class login_user extends userService{
 			if($this->login() != FALSE){
 				$r = 1;
 				$m = 'Logged in - do_login()';
+				$logger = new logger('User logged in','login',null);
+				$logger->save_log();
 			}else{
 				$m = 'Failed login - do_login()';
+				$logger = new logger('User failed login','login',null);
+				$logger->save_log();
 			}
 			$m = 'Failed login - validate_cred()';
 		}		

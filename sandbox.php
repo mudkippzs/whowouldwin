@@ -6,14 +6,6 @@ include_once './resources/header.php';
 ?>
 <?php 
 
-$logger = new logger('user log test','warning',null);
-
-$logger->print_log();
-if($logger->save_log()!=FALSE){	
-	echo 'Event logged';
-}else{
-	echo 'Event not logged';
-}
 
 ?>
 

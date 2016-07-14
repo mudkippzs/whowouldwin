@@ -181,7 +181,7 @@ LOG;
 			$this->response['message'] = 'The user ID is valid';			
 		}
 		if($r = 1){
-			$r = uid;
+			$r = $uid;
 		}
 		return $r;		
 	}
@@ -192,7 +192,7 @@ LOG;
 				$post = new postService();
 				$pageid = $post->validate_post_info('stub',$pageid);
 			}else{
-				$pageid = 'not set';
+				$pageid = 'home';
 			}
 			
 			return $pageid;
