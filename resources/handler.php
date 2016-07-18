@@ -192,15 +192,24 @@ function process_edit_post($p){
 //process new hero spell
 function process_new_hero($p){
 	$reply = array('reply'=>0,'response'=>'null');
-		
+	$uid = $_SESSION['user_id'];	
 	if(!empty($p)){
 			$hero = new hero();
-			$hero->build_hero($p);
-			$hero->save_hero();
-			$reply['reply'] = 1;
-			$reply['response'] = "Form submitted and processed without error";
+			if($hero->build_hero($p)){
+				if($hero->save_hero($uid)){
+					$reply['reply'] = 1;
+					$reply['response'] = "Hero saved!";					
+				}else{
+					$reply['response'] = $hero->get_last_error();
+				}
+				
+			}else{
+				$reply['response'] = "Couldnt build hero";
+			}
+			
+			
 	}else{
-		$reply['response'] = "Form wasn't submitted correctly!";
+		$reply['response'] = "Hero wasnt saved for some randomass reason!";
 	}
 	header('Content-Type: application/json');
 	echo json_encode($reply);

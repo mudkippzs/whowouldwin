@@ -27,7 +27,7 @@ class heroService{
 	}
 	
 	public function build_hero($pa){		
-		if(!empty($pa['www_new_hero'])){			
+		if(isset($pa['new_hero_name'])){			
 			$this->name = $this->db->escape($pa['new_hero_name']);
 			$this->attrib_array[0] = $this->db->escape($pa['attribute_range_1']);
 			$this->attrib_array[1] = $this->db->escape($pa['attribute_range_2']);
@@ -47,7 +47,7 @@ class heroService{
 	}
 	
 	public function calc_attrib_single_cost($id,$v){
-		$attributes = $this->db->get('attribute_defintions',8);
+		$attributes = $this->db->get('attribute_definitions',8);
 		$costM = $attributes[$id]['multiplier'];
 		$cost = $v * $costM;
 		return $cost;
@@ -57,7 +57,7 @@ class heroService{
 		$count = 0;
 		$cost = 0;
 			foreach($this->attrib_array as $val){
-				$cost += $this->calc_attrib_cost($count,$val);			
+				$cost += $this->calc_attrib_single_cost($count,$val);			
 				$count += 1;
 			}
 		return $cost;
@@ -67,11 +67,11 @@ class heroService{
 		return uniqid(rand()). uniqid();
 	}
 	
-	public function save_hero(){
+	public function save_hero($uid){
 		$r = 0;
-		$user = new userService();
-		if($user->user_id_is_valid($_SESSION['user_id'])){
-			$this->user_id = $_SESSION['user_id'];
+		$user = new userService();		
+		if($user->user_id_is_valid($uid)){
+			$this->user_id = $uid;
 		}
 		$this->createdDate = date('Y-m-d H:i:s');
 		$this->hero_id = $this->generate_hero_id();
@@ -103,6 +103,10 @@ class heroService{
 			}
 		}
 		return $r;
+	}
+	
+	public function get_last_error(){
+		return $this->db->getLastError();
 	}
 	
 	public function update_hero($pa){

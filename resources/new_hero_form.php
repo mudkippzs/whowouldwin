@@ -10,7 +10,6 @@ $form->configure(array(
 	"prevent" => array("bootstrap", "jQuery"),
     "ajax" => 1,
     "ajaxCallback" => "www_new_hero_create",
-    "novalidate" => "",
 	"action" => "./resources/handler.php"
 ));
 $rangeOptions = array("min"=>"0","max"=>"25","step"=>"1",'required'=>1);
