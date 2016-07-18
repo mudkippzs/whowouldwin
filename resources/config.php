@@ -94,7 +94,10 @@ require_once  $_SERVER["DOCUMENT_ROOT"] . '/db/MysqliDb.php';
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/functions.php';
 // service classes go here or the rest false apart, dont blame me Im just making this up as I go along
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/userService.class.php';
-include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/postService.class.php';   
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/postService.class.php'; 
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/heroService.class.php';
+include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/battleService.class.php';
+  
 //beautiful classes below - no ugly code please and descriptive file names please. respect my house.
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/log.class.php'; 
 include_once  $_SERVER["DOCUMENT_ROOT"] . '/resources/mail.class.php'; 
@@ -102,7 +105,16 @@ include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/login_user.class.php';
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/password_reset.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/logout_user.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/register_user.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/battle.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/round.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/power.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/attack.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/defend.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/powerOff.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/powerDef.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/powerUti.class.php'; 
 include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/post.class.php'; 
+include_once $_SERVER["DOCUMENT_ROOT"] . '/resources/hero.class.php'; 
 
 /*
     Creating constants for heavily used paths makes things a lot easier.

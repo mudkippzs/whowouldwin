@@ -8,7 +8,7 @@
 		 */
 		var defaults = {
 			addTrigger: ".add",
-			deleteTrigger: ".delete",
+			deleteTrigger: ".del",
 			max: null,
 			startWith: 0,
 			template: null,
@@ -135,48 +135,42 @@
 /**
 @TODO Redo all this template repeater shit because its a heap of shit right now
 **/
+
 // Repeatable Form Field
-var powerTypes = {
-	'touch-physical':'[Touch] Physical',
-	'touch-energy':'[Touch] Energy',
-	'touch-meta':'[Touch] Meta',
-	'touch-transform':'[Touch] Transform',
-	'range-projectile':'[Range] Projectile',
-	'range-energy':'[Range] Energy',
-	'range-meta':'[Range] Meta',
-	'range-transform':'[Range] Transform',	
-	'area-blast':'[Area] Blast',
-	'area-aura':'[Area] Aura',
-	'movement-conventional':'[Movement] Conventional',
-	'movement-instant':'[Movement] Instantanious',
-	'tech-close-combat':'[Tech] Close Combat',
-	'tech-ranged-combat':'[Tech] Ranged Combat',
-	'tech-touch':'[Tech] Touch-based tech',
-	'tech-aura':'[Tech] Aura Effect',
-	'tech-blast':'[Tech] Area Blast',
-	'tech-movement-conventional':'[Tech] Blast',
-	'tech-movement-instantanious':'[Tech] Blast',
-	'psi-mind':'[Psi] Mind',
-	'psi-psychokinetic':'[Psi] Psychokinesis'
-};
+var powerTypes;
+$(document).ready(function(){
+	$.ajax({type: "POST",url: "./resources/handler.php",data: {"get_attributes":true},success: function(e){ powerTypes = e;	},dataType: 'json'});
+});
+
+var damageTypes;
+$(document).ready(function(){
+	$.ajax({type: "POST",url: "./resources/handler.php",data: {"get_damage_types":true},success: function(e){ damageTypes = e;	},dataType: 'json'});
+});
+	
+	
 
 
 $(function() {
     $("form .offense_repeater").repeatable({
         addTrigger: ".add1",
 		onAdd: function(){
+			
 			$.each(powerTypes, function(key, value) {   
-				 $('.off-power-type-select')
+				 $('#power_off_card_-element-1')
 					 .append($("<option></option>")
 					 .attr("value",key)
 					 .text(value)); 
-			});
+			});	
+			$.each(damageTypes, function(key, value) {
+				console.log(damageTypes[0])				
+				 $('.off_effectPowerCheckbox')
+					 .append($("<label class='checkbox'><input id='power_off_card_-element-5-" + key + "' type='checkbox' name='off-power-dmgType-{?}[]' value='" + key + "'>" + value + "</label>"));					  
+			});	
 			
-			get_attribute_list('off');
 			
 			$('.offense_repeater > .field-group').addClass('hero_form_power_repeater offense_repeater');
 		},
-		deleteTrigger: '.delete1',
+		deleteTrigger: '#power_off_card_-element-9',
 		template: "#offensive-power"
     });
 });
@@ -185,17 +179,22 @@ $(function() {
         addTrigger: ".add2",
 		onAdd: function(){
 			$.each(powerTypes, function(key, value) {   
-				 $('.def-power-type-select')
+				 $('#power_def_card_-element-1')
 					 .append($("<option></option>")
 					 .attr("value",key)
 					 .text(value)); 
-			});
+			});			
+			
+			$.each(damageTypes, function(key, value) {
+				console.log(damageTypes[0])				
+				 $('.def_effectPowerCheckbox')
+					 .append($("<label class='checkbox'><input id='power_def_card_-element-5-" + key + "' type='checkbox' name='def-power-dmgType-{?}[]' value='" + key + "'>" + value + "</label>"));					  
+			});	
 			
 			
-			get_attribute_list('def');
 			$('.defense_repeater > .field-group').addClass('hero_form_power_repeater defense_repeater');
 		},
-		deleteTrigger: '.delete2',
+		deleteTrigger: '#power_def_card_-element-9',
 		template: "#defensive-power"
     });
 });
@@ -204,19 +203,29 @@ $(function() {
         addTrigger: ".add3",
 		onAdd: function(){
 			$.each(powerTypes, function(key, value) {   
-				 $('.uti-power-type-select')
+				 $('#power_uti_card_-element-1')
 					 .append($("<option></option>")
 					 .attr("value",key)
 					 .text(value));
 					 
 			});
 			
-			get_attribute_list('uti');
+			$.each(damageTypes, function(key, value) {
+				console.log(damageTypes[0])				
+				 $('.uti_effectPowerCheckbox')
+					 .append($("<label class='checkbox'><input id='power_uti_card_-element-5-" + key + "' type='checkbox' name='uti-power-dmgType-{?}[]' value='" + key + "'>" + value + "</label>"));					  
+			});	
+			
+			
 			$('.utility_repeater > .field-group').addClass('hero_form_power_repeater utility_repeater');
 		},
-		deleteTrigger: '.delete3',
+		deleteTrigger: '#power_uti_card_-element-9',
 		template: "#utility-power"
     });
 });
+
+
+
+
 
   $( "#tabs" ).tabs({active: 0});

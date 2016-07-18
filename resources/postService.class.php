@@ -45,7 +45,7 @@ class postService{
 	
 	public function validate_post_info($key,$data){
 		$r = 0;
-		$cols = Array ($key);
+		$cols = Array ("$key");
 		$pages = $this->db->get ("content", null, $cols);
 		if($this->db->count > 0){
 				foreach($pages as $k=>$d){

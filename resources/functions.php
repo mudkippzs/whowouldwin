@@ -31,6 +31,22 @@ function is_valid_email($e){
 	return $r;
 }
 
+function get_username($s){
+	$r = 0;	
+	$user = new userService();
+	$user->user_id = $user->db->escape($s);
+	$user_id = $user->user_id_is_valid($s);
+	if($user_id!= FALSE){
+		$username = $user->get_username();
+		$r = 1;		
+	}		
+	if($r == 1){
+		$r = $username;
+	}
+	
+	return $r;	
+}
+
 function is_admin($s){
 	$r = 0;	
 	$user = new userService();
@@ -51,13 +67,31 @@ function pull_attribute_definitions(){
 		DBPASS, //dbpass
 		DBNAME //dbname
 	);
-	
+	$r = 0;
 	$cols = array("id","label","description","multiplier");
 	$attributes = $db->get ("attribute_definitions");
 	if($db->count > 0){
 		$r = $attributes;
 	}else{
 		$r = 'No attributes defined';
+	}	
+	return $r;	
+}
+
+function pull_damage_types(){
+	$db = new MysqliDb(
+		DBHOST, //dbhost 
+		DBUSER, //dbuser
+		DBPASS, //dbpass
+		DBNAME //dbname
+	);
+	$r = 0;
+	$cols = array("label","description");
+	$dmgTypes = $db->get ("damagetype_definitions");
+	if($db->count > 0){
+		$r = $dmgTypes;
+	}else{
+		$r = 'No dmgTypes defined';
 	}	
 	return $r;	
 }
@@ -81,10 +115,14 @@ function print_nav($currentPage){
 			print_r ("<li><a href='/index.php?page=" . $s['stub'] . "'>" . strtoupper($s['page_title']) . "</a></li>");
 		}
 		if(is_user_logged_in()!= FALSE){
-			print_r ("<li><a href='/action.php'>NEW HERO</a></li>");
+			$uid = $_SESSION['user_id'];
+			$username = strtoupper(get_username($uid));
+			print_r ("<li><a href='/action.php'>NEW HERO</a></li>");			
+			print_r ("<li><a href='/user.php'>$username</a></li>");			
 			if(is_admin($_SESSION['user_id'])){				
 				print_r ("<li><a href='/admin.php'>ADMIN</a></li>");
 			}
+			print_r ("<li><a href='/logout.php'>LOGOUT</a></li>");
 		}
 		echo "</ul>";	
 }

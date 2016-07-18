@@ -28,10 +28,49 @@ if(isset($_POST["www_new_comment_form"])) {
 //submit post form
 if(isset($_POST["www_new_post_form"])) {
 	process_new_post($_POST);
-}	
+}
+	
 //edit post form
 if(isset($_POST["www_edit_post_form"])) {
 	process_edit_post($_POST);
+}	
+	
+//new hero form
+if(isset($_POST["www_new_hero_form"])) {
+	process_new_hero($_POST);
+}	
+	
+//edit hero form
+if(isset($_POST["www_edit_hero_form"])) {
+	process_edit_hero($_POST);
+}	
+	
+//ajax call for attributes from db
+if(isset($_POST["get_attributes"])) {
+	$attr = pull_attribute_definitions();
+	$attributes = array();	
+	$c = 0;
+	foreach($attr as $k=>$v){
+		$lab = $v['label'];
+		$attributes[$c] = $lab;
+		$c += 1;
+	}
+	
+	echo stripslashes(json_encode($attributes));
+}	
+
+//ajax call for attributes from db
+if(isset($_POST["get_damage_types"])) {
+	$dT = pull_damage_types();
+	$dmgTypes = array();	
+	$c = 0;
+	foreach($dT as $k=>$v){
+		$lab = $v['label'];
+		$dmgTypes["$c"] = $lab;
+		$c += 1;
+	}
+	
+	echo stripslashes(json_encode($dmgTypes,TRUE));
 }	
 
 /*
@@ -145,6 +184,37 @@ function process_edit_post($p){
 				}
 	}else{
 		$reply['response'] = "Post wasn't edited correctly!";
+	}
+	header('Content-Type: application/json');
+	echo json_encode($reply);
+}
+
+//process new hero spell
+function process_new_hero($p){
+	$reply = array('reply'=>0,'response'=>'null');
+		
+	if(!empty($p)){
+			$hero = new hero();
+			$hero->build_hero($p);
+			$hero->save_hero();
+			$reply['reply'] = 1;
+			$reply['response'] = "Form submitted and processed without error";
+	}else{
+		$reply['response'] = "Form wasn't submitted correctly!";
+	}
+	header('Content-Type: application/json');
+	echo json_encode($reply);
+}
+
+//process edit hero spell
+function process_edit_hero($p){
+	$reply = array('reply'=>0,'response'=>'null');
+		
+	if(!empty($p)){
+				$reply['reply'] = 1;
+				$reply['response'] = "Form submitted and processed without error";
+	}else{
+		$reply['response'] = "Form wasn't submitted correctly!";
 	}
 	header('Content-Type: application/json');
 	echo json_encode($reply);

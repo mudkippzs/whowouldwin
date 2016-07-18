@@ -7,9 +7,7 @@ include_once './resources/header.php';
 	<div class='header_inner'>
 		<div class='header_login_box'>
 			<?php 
-			if(is_user_logged_in()!= FALSE){
-				echo "Welcome! <p><a href='/logout.php'>Logout</a></p>";
-			}else{				
+			if(is_user_logged_in()!= TRUE){
 				include_once './resources/login_form.php';
 			}
 			?>	
@@ -18,17 +16,11 @@ include_once './resources/header.php';
 			</div>
 		</div>
 		<div class='header_registration'>
-			<?php 
-			//logged in? show message - else: show reg form
-			if(is_user_logged_in()!= FALSE){
-				//show MOTD announcement for members
-				
-			}else{
+			<?php 			
+			if(is_user_logged_in()!= TRUE){				
 				include_once './resources/registration_form.php'; 
 			}
-			
-			?>
-				
+			?>				
 		</div>
 	</div>
 </div>
@@ -44,8 +36,7 @@ include_once './resources/header.php';
 		<ul><li><a href="http://docs.google.com/forms/d/1zKansQ13GHGvO9Pq6NBppFmz41FtlGqX0HVpqXbVO7k/edit?usp=sharing" target='_blank'>Click here</a> to go and do my Google Form survey! Feedback is reviewed every few weeks and it has a strong influence on the direction of the platform in terms of utility. At it's core - I'm building a platform for quantifying heroes from any work of fiction and creating a universal system of scale for them to compete on. The scale is decided by community vote and feedback on a constant basis.</li></ul>
 		<li>Whats with the constant change of the frontend?</li>
 		<ul><li>Its still under development - since this is primarily a personal project I don't care much about holding pages etc. I do have a dedicated FE dev doing the design and development of the UI because I'm terribley uncreative in that regard. But I'm a whizz with code and databases so that's my focus.</li></ul>
-	</ul>
-	
+	</ul>	
 	</div>
 	<div class='main_inner'>	
 		<?php 
@@ -53,8 +44,8 @@ include_once './resources/header.php';
 			
 			$content = get_content($currentPage); 
 			echo "<h1>" . $content['page_title'] . "</h1>";			
-			echo "<p>" . $content['content'] . "</p>";			
-			echo "<small><strong>Updated </strong>" . time_elapsed_string($content['createdDate']) . "</small>";
+			echo "<p>" . $content['content'] . "</p>";	
+			echo "<span class='post_timestamp'><small><strong>Updated </strong>" . time_elapsed_string($content['createdDate']) . "</small></span>";			
 			$logger = new logger('Page visit','info',null);
 			$logger->save_log();
 		}
@@ -62,7 +53,6 @@ include_once './resources/header.php';
 	</div>
 
 </div>
-
 <?php 
 //include the footer
 include_once './resources/footer.php'; 

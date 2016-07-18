@@ -140,6 +140,19 @@ class userService{
 		return $user;
 	}
 	
+	public function get_username($id = null){
+		if(is_null($id)){
+			if(isset($this->user_id)){
+				$id = $this->user_id;
+			}
+		}
+		$this->db->where("user_id",$id);
+		$user = $this->db->getOne("users");
+		$username = $user['username'];
+		
+		return $username;
+	}
+	
 	public function get_user_id($username){
 	
 		$this->db->where("username",$username);
@@ -165,9 +178,9 @@ class userService{
 	public function user_id_is_valid($id = null){
 		$r = 0;	
 		if(is_null($id)){
-			$id = $this->user_id;
+			$id = $this->db->escape($this->user_id);
 		}else{
-			$this->db->where("user_id",$id);
+			$this->db->where("user_id",$this->db->escape($id));
 			$user = $this->db->getOne("users");
 			$user_id = $user['user_id'];		
 			if($id === $user_id){

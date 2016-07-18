@@ -97,8 +97,9 @@ div#footer_wrapper {
 .header_inner > nav > ul > li {
     font-size: .8em;
     margin: 0 auto;
-    width: 10%;
+    width: 150px;
     padding: 5px;
+    text-align: center;
 }
 .main_tower {
     width: 250px;
