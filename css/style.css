@@ -1,37 +1,38 @@
+body {
+    font-family: Arial;
+    font-size: 12px;
+}
+
 .header_wrapper {
-    width: 100%;
+
     display: block;
 }
 
 .header_inner {
-    width: 1200px;
-    height: auto;
+    max-width: 1200px;
+    text-align: center;
 }
 
 .header_login_box {
-    width: 370px;
-    float: left;
-    margin: 5px;
+	display:inline-block;
+    width: 760px;
 }
 
 .header_forgot_password {
     display: none;
+	width: 250px;
 }
 
-.header_registration {
-    width: 550px;
-    margin: 5px;
-    float: left;
+.header_registration {	
+    display:none;
 }
 
 span.registration_no_email_warning {
+	position: absolute;
+    left: 563px;
+    top: 150px;
     font-size: x-small;
     color: red;
-}
-
-body {
-    font-family: Arial;
-    font-size: 12px;
 }
 
 .registration_result {
@@ -70,19 +71,22 @@ div#footer_wrapper {
     text-decoration: none;
 }
 
-.header_inner > nav > ul {
+nav {
     width: 100%;
+    text-align: center;
+}
+
+.header_inner > nav > ul {
+    max-width: 660px;
     list-style: none;
-    float: left;
-    border-bottom: 2px solid black;
-    padding-bottom: 5px;
+    border-bottom: 2px solid #a1a1a1;    
+	display:inline-block;
 }
 
 .header_inner > nav > ul > li {
-    font-size: .8em;
-    margin: 0 auto;
+    font-size: .8em;    
     width: 10%;
-    padding: 5px;
+    
 }
 
 .header_inner > nav > ul > li {

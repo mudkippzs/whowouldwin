@@ -5,22 +5,24 @@ include_once './resources/header.php';
 
 <div class='header_wrapper'>
 	<div class='header_inner'>
-		<div class='header_login_box'>
-			<?php 
-			if(is_user_logged_in()!= TRUE){
-				include_once './resources/login_form.php';
-			}
-			?>	
-			<div class='header_forgot_password'>
-				<?php include_once './resources/forgot_password.php';  ?>
+		<div class='header_form_box'>
+			<div class='header_login_box'>
+				<?php 
+				if(is_user_logged_in()!= TRUE){
+					include_once './resources/login_form.php';
+				}
+				?>	
+				<div class='header_forgot_password'>
+					<?php include_once './resources/forgot_password.php';  ?>
+				</div>
 			</div>
-		</div>
-		<div class='header_registration'>
-			<?php 			
-			if(is_user_logged_in()!= TRUE){				
-				include_once './resources/registration_form.php'; 
-			}
-			?>				
+			<div class='header_registration'>
+				<?php 			
+				if(is_user_logged_in()!= TRUE){				
+					include_once './resources/registration_form.php'; 
+				}
+				?>				
+			</div>
 		</div>
 	</div>
 </div>
