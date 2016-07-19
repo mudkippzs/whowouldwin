@@ -28,6 +28,9 @@ if(is_user_logged_in()!= FALSE){
 						<li>Last 5 days: <?php echo "<span>" . $userService->get_users_registered("-5 days") . "</span>"; ?></li>
 						<li>Last 30 days: <?php echo "<span>" . $userService->get_users_registered("-31 days") . "</span>"; ?></li>
 						<li>All time: <?php echo "<span>" . $userService->get_users_registered("-10 years") . "</span>"; ?>	</li>
+						<li>Newest User: <?php echo "<span>" . $userService->get_last_registered() . "</span>"; ?>	</li>
+						<li>Last Login by: <?php echo "<span>" . $userService->get_last_login_user() . "</span>"; ?>	</li>
+						<li>Last Activity by: <?php echo "<span>" . $userService->get_last_active_user() . "</span>"; ?>	</li>
 						<h3>Logins</h3>						
 						<strong>Logged in </strong>
 						<li>Today: <?php echo "<span>" . $userService->get_users_logged_in("-1 days") . "</span>"; ?>	</li>

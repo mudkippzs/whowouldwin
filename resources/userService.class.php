@@ -42,6 +42,48 @@ class userService{
 		}			
 	}
 	
+	public function get_last_registered(){
+		$lastReg;
+		$cols = Array ("username","dateRegistered");
+		$this->db->orderBy("dateRegistered","desc");
+		$users = $this->db->get ("users", null, $cols);		
+		if ($this->db->count >= 0){
+			$lastReg = $users[0]['username'];
+		}else{
+			$lastReg = "No users have registered :(";
+		}
+		return ucfirst($lastReg);
+	}
+	
+	public function get_last_login_user(){
+		$lastLogin;
+		$cols = Array ("username","lastLogin");
+		$this->db->orderBy("lastLogin","desc");
+		$users = $this->db->get ("users", null, $cols);		
+		if ($this->db->count >= 0){
+			$lastLogin = $users[0]['username'];
+		}else{
+			$lastLogin = "No users have registered :(";
+		}
+		return ucfirst($lastLogin);
+	}
+	
+	
+	public function get_last_active_user(){
+		$lastActive;
+		$cols = Array ("username","lastActive");
+		$this->db->orderBy("lastActive","desc");
+		$users = $this->db->get ("users", null, $cols);		
+		if ($this->db->count >= 0){
+			$lastActive = $users[0]['username'];
+		}else{
+			$lastActive = "No users have registered :(";
+		}
+		return ucfirst($lastActive);
+	}
+	
+	
+	
 	public function get_users_registered($date=null){
 		$count = 0;
 		$cols = Array ("dateRegistered");
