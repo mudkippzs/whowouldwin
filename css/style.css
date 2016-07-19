@@ -99,11 +99,10 @@ nav {
     text-decoration: none;
 }
 .header_inner > nav > ul > li {
-    font-size: .8em;
+    font-size: .9em;
     margin: 0 auto;
-    width: 150px;
-    padding: 5px;
-    text-align: center;
+    width: 60px;
+    padding: 10px;
 }
 .main_tower {
     width: 250px;
