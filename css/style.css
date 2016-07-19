@@ -81,29 +81,18 @@ nav {
     list-style: none;
     border-bottom: 2px solid #a1a1a1;    
 	display:inline-block;
+	padding: 0px
 }
 
 .header_inner > nav > ul > li {
-    font-size: .8em;    
-    width: 10%;
+	font-size: .9em;
+    margin: 0 auto;
+    width: 120px;
+	padding: 5px 0px;
+	float: left;
     
 }
 
-.header_inner > nav > ul > li {
-    float: left;
-    margin: 0px 5px;
-}
-.logo > a {
-    font-size: 5em;
-    color: #000;
-    text-decoration: none;
-}
-.header_inner > nav > ul > li {
-    font-size: .9em;
-    margin: 0 auto;
-    width: 60px;
-    padding: 10px;
-}
 .main_tower {
     width: 250px;
     display: block;
